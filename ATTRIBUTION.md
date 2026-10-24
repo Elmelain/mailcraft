@@ -36,3 +36,11 @@ Generated-in-code art is original and has no file to list: the UI icon set (`cra
 | `assets/fonts/OFL-Inter.txt` | (licence text) | upstream project | — |  |
 | `assets/fonts/OFL-SourceSans3.txt` | (licence text) | upstream project | — |  |
 | `assets/fonts/OFL-JetBrainsMono.txt` | (licence text) | upstream project | — |  |
+
+| `assets/reader-fonts/LiberationSans-Regular.ttf` | Liberation project authors | https://github.com/liberationfonts/liberation-fonts | OFL-1.1 |
+| `assets/reader-fonts/LiberationSans-Bold.ttf` | Liberation project authors | https://github.com/liberationfonts/liberation-fonts | OFL-1.1 |
+| `assets/reader-fonts/LiberationSerif-Regular.ttf` | Liberation project authors | https://github.com/liberationfonts/liberation-fonts | OFL-1.1 |
+| `assets/reader-fonts/LiberationSerif-Bold.ttf` | Liberation project authors | https://github.com/liberationfonts/liberation-fonts | OFL-1.1 |
+| `assets/reader-fonts/LiberationMono-Regular.ttf` | Liberation project authors | https://github.com/liberationfonts/liberation-fonts | OFL-1.1 |
+| `assets/reader-fonts/LiberationMono-Bold.ttf` | Liberation project authors | https://github.com/liberationfonts/liberation-fonts | OFL-1.1 |
+| `assets/reader-fonts/OFL-Liberation.txt` | Liberation project authors | https://github.com/liberationfonts/liberation-fonts | OFL-1.1 |

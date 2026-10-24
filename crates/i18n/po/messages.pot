@@ -1598,7 +1598,7 @@ msgid "Copies a short message with the address of Microsoft's page where an admi
 msgstr ""
 
 #. command label, interface, name
-#: crates/engine/src/cmd/format.rs crates/ui-egui/src/dialogs.rs crates/ui-egui/src/menubar.rs
+#: crates/engine/src/cmd/format.rs crates/ui-egui/src/dialogs.rs crates/ui-egui/src/menubar.rs crates/ui-egui/src/reading/advanced/mod.rs
 msgid "Copy"
 msgstr ""
 
@@ -1652,6 +1652,11 @@ msgstr ""
 #. interface
 #: crates/ui-egui/src/dialogs.rs
 msgid "Copy all of it"
+msgstr ""
+
+#. interface
+#: crates/ui-egui/src/reading/advanced/mod.rs
+msgid "Copy link address"
 msgstr ""
 
 #. interface
@@ -4805,6 +4810,11 @@ msgid "Open in a Window of Its Own"
 msgstr ""
 
 #. interface
+#: crates/ui-egui/src/reading/advanced/mod.rs
+msgid "Open link"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/report_problem.rs
 msgid "Open on GitHub"
 msgstr ""
@@ -5137,6 +5147,11 @@ msgstr ""
 #. interface
 #: crates/ui-egui/src/forms.rs
 msgid "Postal code"
+msgstr ""
+
+#. interface
+#: crates/ui-egui/src/reading/advanced/mod.rs
+msgid "Preparing original formatting…"
 msgstr ""
 
 #. interface
@@ -6369,6 +6384,11 @@ msgid "Show in the time bar"
 msgstr ""
 
 #. interface
+#: crates/ui-egui/src/reading/advanced/mod.rs
+msgid "Show original formatting"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/favorites_sync.rs
 msgid "Show the Favorites from Outlook in the folder pane"
 msgstr ""
@@ -6578,6 +6598,11 @@ msgstr ""
 #. name
 #: crates/ui-egui/src/ribbon.rs
 msgid "Simplified Ribbon"
+msgstr ""
+
+#. interface
+#: crates/ui-egui/src/reading/advanced/mod.rs
+msgid "Simplified layout"
 msgstr ""
 
 #. command label, interface

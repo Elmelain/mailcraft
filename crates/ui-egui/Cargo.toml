@@ -36,3 +36,12 @@ toml = "1"
 [dev-dependencies]
 toml = "1"
 egui_kittest = { workspace = true, features = ["wgpu", "snapshot"] }
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+blitz-html = { version = "=0.3.0-beta.3", default-features = false }
+blitz-dom = { version = "=0.3.0-beta.3", default-features = false, features = ["floats", "complex-scripts"] }
+blitz-traits = { version = "=0.3.0-beta.3", default-features = false }
+blitz-paint = { version = "=0.3.0-beta.3", default-features = false }
+anyrender = "=0.14.0"
+anyrender_vello_cpu = { version = "=0.18.0", default-features = false }
+fontique = { version = "=0.12.0", default-features = false, features = ["std"] }

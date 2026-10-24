@@ -1,3 +1,15 @@
+**Personal fork — advanced HTML reader (local development)**
+
+- Read HTML mail with a desktop-only Blitz renderer that preserves stylesheets,
+  media queries and nested tables. Layout and painting run on a bounded worker.
+- Keep remote pictures behind MailCraft's existing consent and transport; scripts,
+  external stylesheets and remote fonts remain disabled. Retain the simplified reader.
+- Open and copy links through verified DOM hit testing; preserve text drag selection.
+- Accept bounded complex transactional messages and connect progress rails by
+  retaining percentage column proportions and honoring zero cell padding.
+- Include pinned dependency exceptions, font licences and synthetic regression tests.
+  This is a personal architecture change; it has not been accepted upstream.
+
 **What's new in 0.7.0** (an alpha for testers; sign up in [#11](https://github.com/GITHUB_REPOSITORY/issues/11)): new mail from Microsoft accounts sooner, a proper menu bar on the Mac, and a way to report a problem from inside MailCraft.
 - **Mail arrives sooner.** For a Microsoft account, Send/Receive does every Inbox first, shared mailboxes included, skips folders that haven't changed and keeps its connection open. Between runs, MailCraft checks each Inbox every minute ([#276](https://github.com/GITHUB_REPOSITORY/issues/276)).
 - **On the Mac**, the menu bar at the top of the screen has MailCraft's menus, and the message list has the thin scroll bar Mac programs use (thanks to @HerbJul and @pick2510).

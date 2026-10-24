@@ -76,3 +76,87 @@ unknown-registry = "deny"
 unknown-git = "deny"
 allow-registry = ["https://github.com/rust-lang/crates.io-index"]
 allow-git = ["https://github.com/UCS-Care-Group/winit"]
+
+[[licenses.exceptions]]
+# Local reader: owner-approved pinned MPL dependency.
+name = "app_units"
+version = "=0.7.8"
+allow = ["MPL-2.0"]
+
+[[licenses.exceptions]]
+# Local reader: owner-approved pinned MPL dependency.
+name = "cssparser"
+version = "=0.38.0"
+allow = ["MPL-2.0"]
+
+[[licenses.exceptions]]
+# Local reader: owner-approved pinned MPL dependency.
+name = "cssparser-macros"
+version = "=0.7.1"
+allow = ["MPL-2.0"]
+
+[[licenses.exceptions]]
+# Local reader: owner-approved pinned MPL dependency.
+name = "dtoa-short"
+version = "=0.3.5"
+allow = ["MPL-2.0"]
+
+[[licenses.exceptions]]
+# Local reader: owner-approved pinned MPL dependency.
+name = "selectors"
+version = "=0.41.0"
+allow = ["MPL-2.0"]
+
+[[licenses.exceptions]]
+# Local reader: owner-approved pinned MPL dependency.
+name = "stylo"
+version = "=0.22.0"
+allow = ["MPL-2.0"]
+
+[[licenses.exceptions]]
+# Local reader: owner-approved pinned MPL dependency.
+name = "stylo_atoms"
+version = "=0.22.0"
+allow = ["MPL-2.0"]
+
+[[licenses.exceptions]]
+# Local reader: owner-approved pinned MPL dependency.
+name = "stylo_derive"
+version = "=0.22.0"
+allow = ["MPL-2.0"]
+
+[[licenses.exceptions]]
+# Local reader: owner-approved pinned MPL dependency.
+name = "stylo_dom"
+version = "=0.22.0"
+allow = ["MPL-2.0"]
+
+[[licenses.exceptions]]
+# Local reader: owner-approved pinned MPL dependency.
+name = "stylo_static_prefs"
+version = "=0.22.0"
+allow = ["MPL-2.0"]
+
+[[licenses.exceptions]]
+# Local reader: owner-approved pinned MPL dependency.
+name = "stylo_traits"
+version = "=0.22.0"
+allow = ["MPL-2.0"]
+
+[[licenses.exceptions]]
+# Local reader: owner-approved pinned MPL dependency.
+name = "to_shmem"
+version = "=0.6.0"
+allow = ["MPL-2.0"]
+
+[[licenses.exceptions]]
+# Local reader: owner-approved pinned MPL dependency.
+name = "to_shmem_derive"
+version = "=0.2.0"
+allow = ["MPL-2.0"]
+
+[[licenses.exceptions]]
+# Local reader: owner-approved pinned MPL dependency.
+name = "uluru"
+version = "=3.1.0"
+allow = ["MPL-2.0"]

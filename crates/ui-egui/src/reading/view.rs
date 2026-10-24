@@ -74,13 +74,39 @@ impl Doc {
             Some(blocks) if can_download => {
                 let doc = Doc::from_blocks(blocks);
                 if !doc.remote.is_empty() {
-                    return doc;
+                    return doc.with_advanced_backgrounds(message);
                 }
                 mailcraft_html::text_blocks(&message.body.text)
             }
             _ => mailcraft_html::text_blocks(&message.body.text),
         };
-        Doc::from_blocks(blocks)
+        Doc::from_blocks(blocks).with_advanced_backgrounds(message)
+    }
+
+    #[cfg_attr(target_arch = "wasm32", allow(unused_mut, unused_variables))]
+    fn with_advanced_backgrounds(mut self, message: &Message) -> Self {
+        #[cfg(all(test, not(target_arch = "wasm32")))]
+        if super::advanced::native_reader_test() {
+            return self;
+        }
+
+        #[cfg(not(target_arch = "wasm32"))]
+        if std::env::var_os("MAILCRAFT_NATIVE_READER").is_none()
+            && let Some(source) = message.body.html.as_deref().and_then(mailcraft_html::reader_html)
+        {
+            for url in source.backgrounds {
+                if !images::is_remote(&url) || self.remote.iter().any(|s| s.as_ref() == url) {
+                    continue;
+                }
+                self.remote_pictures = self.remote_pictures.saturating_add(1);
+                if self.remote.len() < super::remote::MAX_PER_MESSAGE {
+                    self.remote.push(Arc::from(url));
+                } else {
+                    self.remote_left_out = self.remote_left_out.saturating_add(1);
+                }
+            }
+        }
+        self
     }
 
     /// The blocks as a body, with what is known of their pictures on the web.
@@ -282,6 +308,11 @@ pub fn doc_where(ctx: &egui::Context, message: &Arc<Message>, place: Place, can_
 /// it runs. Pictures from the web are shown when `access` says the owner asked for them, as far
 /// as they have come.
 pub fn show(app: &mut MailApp, ui: &mut Ui, message: &Arc<Message>, place: Place, access: Access) {
+    #[cfg(not(target_arch = "wasm32"))]
+    if super::advanced::show(app, ui, message, place, access) {
+        return;
+    }
+
     let ctx = ui.ctx().clone();
     let t = Tokens::get(&ctx);
     // In steps of a few points, so that dragging the pane's edge does not lay a long message out

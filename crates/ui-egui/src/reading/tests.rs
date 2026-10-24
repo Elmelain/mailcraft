@@ -229,6 +229,7 @@ fn large_newsletter() -> Message {
 /// Run `f` inside a frame of a context that has the interface's fonts and theme.
 fn in_frame<R>(dark: bool, f: impl FnOnce(&egui::Context) -> R) -> R {
     let ctx = egui::Context::default();
+    super::advanced::use_native_for_tests(&ctx);
     ctx.set_fonts(crate::theme::font_definitions());
     crate::theme::apply(&ctx, if dark { Appearance::Dark } else { Appearance::Light }.preference(None));
     ctx.run_ui(egui::RawInput::default(), |_| {}).drop_without_applying_deltas();
@@ -371,6 +372,7 @@ fn window(app: MailApp, size: (f32, f32)) -> egui_kittest::Harness<'static, Mail
         egui_kittest::Harness::builder().with_accessibility_check(false).allow_missing_glyphs().with_size(egui::vec2(size.0, size.1)).build_ui_state(
             |ui, app: &mut MailApp| {
                 let ctx = ui.ctx().clone();
+                super::advanced::use_native_for_tests(&ctx);
                 app.logic(&ctx);
                 app.ui(ui);
             },
@@ -1007,6 +1009,7 @@ fn the_reading_pane_names_nothing_that_could_fetch() {
 #[test]
 fn symbols_written_here_have_glyphs() {
     let ctx = egui::Context::default();
+    super::advanced::use_native_for_tests(&ctx);
     ctx.set_fonts(crate::theme::font_definitions());
     ctx.run_ui(egui::RawInput::default(), |_| {}).drop_without_applying_deltas();
     let dir = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("src").join("reading");
@@ -2224,6 +2227,7 @@ fn shots_of_pictures_from_the_web_and_of_a_message_window() {
             .build_ui_state(
                 |ui, app: &mut MailApp| {
                     let ctx = ui.ctx().clone();
+                    super::advanced::use_native_for_tests(&ctx);
                     app.logic(&ctx);
                     app.ui(ui);
                 },
@@ -2708,6 +2712,7 @@ fn quick_window(app: MailApp, size: (f32, f32)) -> Window {
         .build_ui_state(
             |ui, app: &mut MailApp| {
                 let ctx = ui.ctx().clone();
+                super::advanced::use_native_for_tests(&ctx);
                 app.logic(&ctx);
                 app.ui(ui);
             },

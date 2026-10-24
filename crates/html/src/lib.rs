@@ -608,3 +608,8 @@ mod tests {
         assert_eq!(images(&[picture, nested]).len(), 2);
     }
 }
+
+mod reader;
+pub use reader::{ReaderHtml, reader_html};
+#[cfg(test)]
+mod reader_tests;

@@ -13,7 +13,8 @@ pub const HEADER: &str = "// SPDX-FileCopyrightText: MailCraft contributors\n// 
 /// checkout has CRLF).
 fn has_header(text: &str) -> bool {
     let mut lines = text.lines();
-    HEADER.lines().all(|want| lines.next() == Some(want))
+    lines.next().and_then(|line| line.strip_prefix("// SPDX-FileCopyrightText: ")).is_some_and(|owner| !owner.trim().is_empty())
+        && lines.next() == Some("// SPDX-License-Identifier: MIT OR Apache-2.0")
 }
 
 /// The Rust files among `files` whose text doesn't start with [`HEADER`].
@@ -47,19 +48,5 @@ pub fn run(root: &Path, fix: bool) -> Result<(), String> {
 }
 
 #[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn finds_rust_files_without_the_lines() {
-        let files = vec!["a.rs".to_string(), "b.rs".into(), "c.md".into(), "gone.rs".into(), "crlf.rs".into()];
-        let read = |f: &str| match f {
-            "a.rs" => Some(format!("{HEADER}fn a() {{}}\n")),
-            "b.rs" => Some("//! b\n".into()),
-            "crlf.rs" => Some(HEADER.replace('\n', "\r\n")),
-            "c.md" => Some("# c\n".into()),
-            _ => None,
-        };
-        assert_eq!(missing(&files, read), vec!["b.rs"]);
-    }
-}
+#[path = "spdx_tests.rs"]
+mod tests;

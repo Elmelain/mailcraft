@@ -1900,7 +1900,7 @@ msgid "Copies a short message with the address of Microsoft's page where an admi
 msgstr "Kopiert eine kurze Nachricht mit der Adresse der Microsoft-Seite, auf der ein Administrator Ihrer Organisation MailCraft einmal für alle genehmigt. Es wird nichts gesendet: Fügen Sie sie selbst in eine E-Mail oder einen Chat ein."
 
 #. command label, interface, name
-#: crates/engine/src/cmd/format.rs crates/ui-egui/src/dialogs.rs crates/ui-egui/src/menubar.rs
+#: crates/engine/src/cmd/format.rs crates/ui-egui/src/dialogs.rs crates/ui-egui/src/menubar.rs crates/ui-egui/src/reading/advanced/mod.rs
 #, fuzzy
 msgid "Copy"
 msgstr "Kopieren"
@@ -1968,6 +1968,11 @@ msgstr "Nachricht für meinen Administrator kopieren"
 #, fuzzy
 msgid "Copy all of it"
 msgstr "Alles kopieren"
+
+#. interface
+#: crates/ui-egui/src/reading/advanced/mod.rs
+msgid "Copy link address"
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/sync_panel.rs
@@ -5744,6 +5749,11 @@ msgid "Open in a Window of Its Own"
 msgstr "In eigenem Fenster öffnen"
 
 #. interface
+#: crates/ui-egui/src/reading/advanced/mod.rs
+msgid "Open link"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/report_problem.rs
 msgid "Open on GitHub"
 msgstr ""
@@ -6134,6 +6144,11 @@ msgstr ""
 #, fuzzy
 msgid "Postal code"
 msgstr "Postleitzahl"
+
+#. interface
+#: crates/ui-egui/src/reading/advanced/mod.rs
+msgid "Preparing original formatting…"
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/account_setup.rs
@@ -7607,6 +7622,11 @@ msgid "Show in the time bar"
 msgstr "In der Zeitleiste anzeigen"
 
 #. interface
+#: crates/ui-egui/src/reading/advanced/mod.rs
+msgid "Show original formatting"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/favorites_sync.rs
 #, fuzzy
 msgid "Show the Favorites from Outlook in the folder pane"
@@ -7859,6 +7879,11 @@ msgstr "Meldet sich bei {provider} an"
 #, fuzzy
 msgid "Simplified Ribbon"
 msgstr "Vereinfachtes Menüband"
+
+#. interface
+#: crates/ui-egui/src/reading/advanced/mod.rs
+msgid "Simplified layout"
+msgstr ""
 
 #. command label, interface
 #: crates/engine/src/cmd/view.rs crates/ui-egui/src/ribbon.rs

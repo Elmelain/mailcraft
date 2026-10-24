@@ -494,3 +494,6 @@ fn attachments(app: &mut MailApp, ui: &mut Ui, m: &Message, t: &Tokens) {
         }
     });
 }
+
+#[cfg(not(target_arch = "wasm32"))]
+mod advanced;

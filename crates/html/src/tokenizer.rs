@@ -62,11 +62,16 @@ pub(crate) struct Tokenizer<'a> {
     pos: usize,
     /// Set after the start tag of a raw-text element: its content comes next.
     raw: Option<&'static str>,
+    keep_styles: bool,
 }
 
 impl<'a> Tokenizer<'a> {
     pub fn new(src: &'a str) -> Tokenizer<'a> {
-        Tokenizer { src, pos: 0, raw: None }
+        Tokenizer { src, pos: 0, raw: None, keep_styles: false }
+    }
+
+    pub(crate) fn with_styles(src: &'a str) -> Self {
+        Self { keep_styles: true, ..Self::new(src) }
     }
 
     fn bytes(&self) -> &'a [u8] {
@@ -243,13 +248,14 @@ impl<'a> Iterator for Tokenizer<'a> {
                 }
                 _ => {
                     let tag = self.open_tag();
-                    if DROPPED.contains(&tag.name.as_str()) {
+                    if DROPPED.contains(&tag.name.as_str()) && !(self.keep_styles && tag.name == "style") {
                         // Skip the content and the end tag.
                         let end = find_end_tag(b, self.pos, &tag.name).unwrap_or(b.len());
                         self.pos = find_byte(b, end, b'>').map_or(b.len(), |i| i + 1);
                         continue;
                     }
-                    self.raw = RAW_TEXT.iter().copied().find(|n| *n == tag.name);
+                    self.raw =
+                        if self.keep_styles && tag.name == "style" { Some("style") } else { RAW_TEXT.iter().copied().find(|n| *n == tag.name) };
                     return Some(Token::Open(tag));
                 }
             }
